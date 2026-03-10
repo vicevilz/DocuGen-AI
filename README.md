@@ -84,14 +84,14 @@ Conjunto de utilidades encargadas de la traducción de código a metadatos.
 
 ```bash
 # Genera documentación para el directorio actual
-docugen generate . --output DOCUMENTATION.md
+uv run docugen generate . --output DOCUMENTATION.md
 ```
 
 **Generación con configuración personalizada:**
 
 ```bash
 # Utilizando un modelo específico y pasando instrucciones adicionales
-docugen generate ./src -o README.md --model gemini-pro --prompt "Haz énfasis en la seguridad de las APIs"
+uv run docugen generate ./src -o README.md --model gemini-3.1-pro-preview --prompt "Haz énfasis en la seguridad de las APIs"
 ```
 
 ---
@@ -100,7 +100,7 @@ docugen generate ./src -o README.md --model gemini-pro --prompt "Haz énfasis en
 
 Para contribuir, asegúrate de mantener la cobertura de pruebas. El proyecto incluye una suite de tests robusta en `tests/` que utiliza `pytest`.
 
-1. Instala los requisitos de desarrollo: `pip install -r requirements-dev.txt`
+1. Instala los requisitos de desarrollo: `pip install -e .`
 2. Ejecuta los tests: `pytest`
 3. Al crear nuevos módulos, asegúrate de que el `processor.py` sea capaz de normalizar las nuevas estructuras de AST generadas.
 
