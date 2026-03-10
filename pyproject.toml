@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docugen-ai"
+version = "0.1.0"
+description = "CLI tool to generate technical docs from Python source code using AST and Gemini."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+  "jinja2>=3.1.0",
+  "google-genai>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+docugen = "docugen.cli:main"
+
+[tool.setuptools]
+packages = [
+  "docugen",
+  "docugen.api",
+  "docugen.core",
+  "docugen.templates",
+  "docugen.utils",
+]
+
+[tool.setuptools.package-data]
+docugen = ["templates/*.j2"]
